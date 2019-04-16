@@ -10,6 +10,7 @@
 package prj5;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -22,7 +23,7 @@ import java.util.Scanner;
  * @author Noah Hefner (nhefner)
  * @version 04/15/2019
  */
-public class Reader 
+public class Reader
 {
     /**
      * Number of songs in the survey.
@@ -40,8 +41,9 @@ public class Reader
      * survey information.
      * @param studentFileName Name of the file with song
      * information.
+     * @throws FileNotFoundException If file is not found.
      */
-    public Reader(String songFileName, String studentFileName)
+    public Reader(String songFileName, String studentFileName) throws FileNotFoundException
     {
         // initialize private attributes with method calls
         this.songs = this.readSong(songFileName);
@@ -55,8 +57,9 @@ public class Reader
      * @param studentFileName Name of file with student
      * survey information.
      * @return A linked list of Student objects.
+     * @throws FileNotFoundException If file is not found.
      */
-    private LinkedList<Student> readStudent(String studentFileName)
+    private LinkedList<Student> readStudent(String studentFileName) throws FileNotFoundException
     {
         LinkedList<Student> studentList = new LinkedList<Student>();
         
@@ -112,6 +115,7 @@ public class Reader
                     heardAnswers, likedAnswers);
             studentList.add(newStudent);
         } // end while
+        studentScanner.close();
         return studentList;
     } // end readStudent
     
@@ -122,8 +126,9 @@ public class Reader
      * @param songFileName Name of the file with student
      * survey information.
      * @return A LinkedList of song objects.
+     * @throws FileNotFoundException If file is not found.
      */
-    private LinkedList<Song> readSong(String songFileName)
+    private LinkedList<Song> readSong(String songFileName) throws FileNotFoundException
     {
         LinkedList<Song> songList = new LinkedList<Song>();
         
@@ -150,6 +155,7 @@ public class Reader
             songList.add(newSong);
             count += 1;
         } // end while
+        songScanner.close();
         return songList;
     } // end readSong
 } // end Reader
