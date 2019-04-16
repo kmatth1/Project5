@@ -4,5 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="/CS2114-Support"/>
 	<classpathentry kind="src" path="/CarranoDataStructuresLib"/>
+	<classpathentry kind="src" path="/ExLinkedList"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
