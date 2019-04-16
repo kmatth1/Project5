@@ -11,7 +11,7 @@ package prj5;
  */
 
 
-public class LinkedList<T> implements ListInterface<T>
+public class LinkedList<T> 
 {
     private T head;
     private Node nextNode;
