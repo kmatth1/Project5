@@ -10,78 +10,162 @@ package prj5;
  * @param <T>
  */
 
-import list.ListInterface;
 
 public class LinkedList<T> implements ListInterface<T>
 {
     private T head;
     private Node nextNode;
+    private int numberOfEntries;
     
     /**
      * LinkedList constructor
-     * @param <T>
      */
     public LinkedList()
     {
-        
+        numberOfEntries = 0;
     }
 
     @Override
-    public void add(T arg0) {
+    public void add(T newEntry) 
+    {
+        Node newNode = new Node(newEntry);
+
+        if (isEmpty())
+            firstNode = newNode;
+        else                              
+        {
+            Node lastNode = getNodeAt(numberOfEntries);
+            lastNode.setNextNode(newNode); 
+        } 
+        
+        numberOfEntries++;
+    }
+
+    @Override
+    public void add(int newPosition, T newEntry) 
+    {
+        if ((newPosition >= 1) && (newPosition <= numberOfEntries + 1))
+        {
+            Node newNode = new Node(newEntry);
+         
+            if (newPosition == 1)                  
+            {
+                newNode.setNextNode(firstNode);
+                firstNode = newNode;
+            }
+            else                                             
+            {                                      
+            Node nodeBefore = getNodeAt(newPosition - 1);
+            Node nodeAfter = nodeBefore.getNextNode();
+                newNode.setNextNode(nodeAfter);
+                nodeBefore.setNextNode(newNode);
+            } 
+         
+            numberOfEntries++;
+        }
+    }
+
+    @Override
+    public void clear() 
+    {
         // TODO Auto-generated method stub
         
     }
 
     @Override
-    public void add(int arg0, T arg1) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void clear() {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public boolean contains(T arg0) {
+    public boolean contains(T arg0) 
+    {
         // TODO Auto-generated method stub
         return false;
     }
 
     @Override
-    public T getEntry(int arg0) {
+    public T getEntry(int arg0) 
+    {
         // TODO Auto-generated method stub
+        if ((givenPosition >= 1) && (givenPosition <= numberOfEntries))
+        {
+            assert !isEmpty();
+            return getNodeAt(givenPosition).getData();
+        }
+        else
+        {
+            throw new IndexOutOfBoundsException("Illegal position given to getEntry operation.");
+        }
         return null;
     }
 
     @Override
-    public int getLength() {
+    public int getLength() 
+    {
         // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
-    public boolean isEmpty() {
+    public boolean isEmpty() 
+    {
         // TODO Auto-generated method stub
         return false;
     }
 
     @Override
-    public T remove(int arg0) {
-        // TODO Auto-generated method stub
+    public T remove(int givenPosition) 
+    {
+        T result = null;                           // Return value
+
+        if ((givenPosition >= 1) && (givenPosition <= numberOfEntries))
+        {
+            assert !isEmpty();
+
+            if (givenPosition == 1)                 // Case 1: Remove first entry
+            {
+                result = firstNode.getData();        // Save entry to be removed
+                firstNode = firstNode.getNextNode(); // Remove entry
+            }
+            else                                    // Case 2: Not first entry
+            {
+                Node nodeBefore = getNodeAt(givenPosition - 1);
+                Node nodeToRemove = nodeBefore.getNextNode();
+                result = nodeToRemove.getData();     // Save entry to be removed
+                Node nodeAfter = nodeToRemove.getNextNode();
+                nodeBefore.setNextNode(nodeAfter);   // Remove entry
+            } // end if
+
+            numberOfEntries--;                      // Update count
+            return result;                          // Return removed entry
+        }
+        else
+        {
+            throw new IndexOutOfBoundsException("Illegal position "
+                    + "given to remove operation.");
+        }
         return null;
     }
 
     @Override
-    public T replace(int arg0, T arg1) {
-        // TODO Auto-generated method stub
+    public T replace(int givenPosition, T newEntry) 
+    {
+        if ((givenPosition >= 1) && (givenPosition <= numberOfEntries))
+        {   
+            assert !isEmpty();
+
+            Node desiredNode = getNodeAt(givenPosition);
+            T originalEntry = desiredNode.getData();
+                desiredNode.setData(newEntry);
+            return originalEntry;
+        }
+        else
+        {
+           throw new IndexOutOfBoundsException("Illegal position given to "
+                   + "replace operation.");
+        }
         return null;
     }
 
     @Override
-    public Object[] toArray() {
+    public Object[] toArray() 
+    {
         // TODO Auto-generated method stub
         return null;
     }
