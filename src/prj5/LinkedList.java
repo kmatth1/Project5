@@ -25,8 +25,6 @@ public class LinkedList<T> implements ListInterface<T>
     {
         
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
     @Override
     public void add(T arg0) {
@@ -125,9 +123,4 @@ public class LinkedList<T> implements ListInterface<T>
            next = nextNode;
         }
     }
-    
-=======
->>>>>>> 92b7f5a1342adf8455841104ad031bd2c20b0df8
-=======
->>>>>>> 92b7f5a1342adf8455841104ad031bd2c20b0df8
 }
