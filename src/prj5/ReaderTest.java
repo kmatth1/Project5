@@ -3,12 +3,19 @@
  */
 package prj5;
 
+import java.io.FileNotFoundException;
+
 /**
  * @author noahh
  *
  */
 public class ReaderTest 
 {
-    // Test via looking at variables in debugger
-    Reader reader = new Reader("SongList2018.csv", "MusicSurveyData2018.csv");
+    @SuppressWarnings("unused")
+    public static void main (String[] args) throws 
+    FileNotFoundException
+    {
+     // Test via looking at variables in debugger
+        Reader reader = new Reader("SongList.csv", "MusicSurveyData.csv");
+    }
 }
