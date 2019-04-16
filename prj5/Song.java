@@ -1,4 +1,4 @@
-package src.prj5;
+package prj5;
 
 /**
  * Creates the song object to hold the data on the songs

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package src.prj5;
+package prj5;
 
 import java.io.FileNotFoundException;
 

@@ -7,7 +7,7 @@
  * accept the actions of those who do.
  * -- CS Student (cstudent)
  */
-package src.prj5;
+package prj5;
 
 import java.io.File;
 import java.io.FileNotFoundException;
