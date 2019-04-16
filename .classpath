@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -14,6 +14,8 @@
 >>>>>>> 92b7f5a1342adf8455841104ad031bd2c20b0df8
 =======
 	<classpathentry kind="src" path="/CS2114-Support"/>
->>>>>>> 92b7f5a1342adf8455841104ad031bd2c20b0df8
+	<classpathentry kind="src" path="/CarranoDataStructuresLib"/>
+	<classpathentry kind="src" path="/ExLinkedList"/>
+>>>>>>> 10b6145aa6fbb6b49311ebf63163b49ae26285a5
 	<classpathentry kind="output" path="bin"/>
 </classpath>

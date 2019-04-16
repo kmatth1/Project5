@@ -1,7 +1,10 @@
 package prj5;
+
+import list.ListInterface;
+
 /**
  * Reads and holds data from two input files. One
- * file holds survey information about students and 
+ * file holds survey information about students and
  * the music they listen to. Another holds information
  * about the songs in the same survey.
  *
@@ -16,7 +19,7 @@ public class LinkedList<T>
     private T head;
     private Node nextNode;
     private int numberOfEntries;
-    
+
     /**
      * LinkedList constructor
      */
@@ -26,61 +29,61 @@ public class LinkedList<T>
     }
 
     @Override
-    public void add(T newEntry) 
+    public void add(T newEntry)
     {
         Node newNode = new Node(newEntry);
 
         if (isEmpty())
             firstNode = newNode;
-        else                              
+        else
         {
             Node lastNode = getNodeAt(numberOfEntries);
-            lastNode.setNextNode(newNode); 
-        } 
-        
+            lastNode.setNextNode(newNode);
+        }
+
         numberOfEntries++;
     }
 
     @Override
-    public void add(int newPosition, T newEntry) 
+    public void add(int newPosition, T newEntry)
     {
         if ((newPosition >= 1) && (newPosition <= numberOfEntries + 1))
         {
             Node newNode = new Node(newEntry);
-         
-            if (newPosition == 1)                  
+
+            if (newPosition == 1)
             {
                 newNode.setNextNode(firstNode);
                 firstNode = newNode;
             }
-            else                                             
-            {                                      
+            else
+            {
             Node nodeBefore = getNodeAt(newPosition - 1);
             Node nodeAfter = nodeBefore.getNextNode();
                 newNode.setNextNode(nodeAfter);
                 nodeBefore.setNextNode(newNode);
-            } 
-         
+            }
+
             numberOfEntries++;
         }
     }
 
     @Override
-    public void clear() 
+    public void clear()
     {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
-    public boolean contains(T arg0) 
+    public boolean contains(T arg0)
     {
         // TODO Auto-generated method stub
         return false;
     }
 
     @Override
-    public T getEntry(int arg0) 
+    public T getEntry(int arg0)
     {
         // TODO Auto-generated method stub
         if ((givenPosition >= 1) && (givenPosition <= numberOfEntries))
@@ -96,21 +99,21 @@ public class LinkedList<T>
     }
 
     @Override
-    public int getLength() 
+    public int getLength()
     {
         // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
-    public boolean isEmpty() 
+    public boolean isEmpty()
     {
         // TODO Auto-generated method stub
         return false;
     }
 
     @Override
-    public T remove(int givenPosition) 
+    public T remove(int givenPosition)
     {
         T result = null;                           // Return value
 
@@ -144,10 +147,10 @@ public class LinkedList<T>
     }
 
     @Override
-    public T replace(int givenPosition, T newEntry) 
+    public T replace(int givenPosition, T newEntry)
     {
         if ((givenPosition >= 1) && (givenPosition <= numberOfEntries))
-        {   
+        {
             assert !isEmpty();
 
             Node desiredNode = getNodeAt(givenPosition);
@@ -164,44 +167,44 @@ public class LinkedList<T>
     }
 
     @Override
-    public Object[] toArray() 
+    public Object[] toArray()
     {
         // TODO Auto-generated method stub
         return null;
     }
-    
+
     private class Node
     {
         private T data;
         private Node next;
-        
+
         private Node(T dataPortion)
         {
            data = dataPortion;
-           next = null;   
+           next = null;
         }
-        
+
         private Node(T dataPortion, Node nextNode)
         {
            data = dataPortion;
-           next = nextNode;   
+           next = nextNode;
         }
-        
+
         private T getData()
         {
            return data;
         }
-        
+
         private void setData(T newData)
         {
            data = newData;
         }
-        
+
         private Node getNextNode()
         {
            return next;
         }
-        
+
         private void setNextNode(Node nextNode)
         {
            next = nextNode;
