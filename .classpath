@@ -4,7 +4,11 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<classpathentry kind="src" path="/CarranoDataStructuresLib"/>
+=======
+	<classpathentry kind="src" path="/CS2114-Support"/>
+>>>>>>> 92b7f5a1342adf8455841104ad031bd2c20b0df8
 =======
 	<classpathentry kind="src" path="/CS2114-Support"/>
 >>>>>>> 92b7f5a1342adf8455841104ad031bd2c20b0df8
