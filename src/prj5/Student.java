@@ -1,4 +1,4 @@
-package songsort;
+package prj5;
 
 /**
  * Creates a Student object to hold a person's data
