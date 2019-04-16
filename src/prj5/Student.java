@@ -1,4 +1,4 @@
-package prj5;
+package src.prj5;
 
 /**
  * Creates a Student object to hold a person's data
